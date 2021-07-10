@@ -1,5 +1,7 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import Container from '../components/Container'
+import Title from '../components/Title'
 
 export default function Home() {
   return (
@@ -12,7 +14,12 @@ export default function Home() {
 
       <main>
         <Container>
-          <h1>Nic Cage</h1>
+          <Title>Nic Cage</Title>
+          <p>
+            <Link href='/gifs/'>
+              <a>GIFS</a>
+            </Link>
+          </p>
         </Container>
       </main>
     </>

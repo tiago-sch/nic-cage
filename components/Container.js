@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { breakpoints, containerMaxWidths } from '../../styles/constants/breakpoints'
+import { breakpoints, containerMaxWidths } from '../styles/constants/breakpoints'
 
 const createContainerWidths = () => {
   let styles = '';
