@@ -1,6 +1,14 @@
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { HeaderWrapper, HeaderTitle, Nav, NavItem } from './style';
+import {
+  HeaderWrapper,
+  HeaderTitle,
+  ToggleButton,
+  ToggleButtonIcon,
+  Nav,
+  NavItem
+} from './style';
 
 const navLinks = [
   {
@@ -14,12 +22,26 @@ const navLinks = [
 ];
 
 const Header = () => {
-  const { asPath } = useRouter();
+  const { events, asPath } = useRouter();
+  const [navOpen, setNavOpen] = useState(false);
+
+  useEffect(() => {
+    const handleRouteChange = () => {
+      setNavOpen(false);
+    }
+    events.on('routeChangeStart', handleRouteChange)
+    return () => {
+      events.off('routeChangeStart', handleRouteChange)
+    }
+  }, []);
 
   return (
-    <HeaderWrapper as="header">
+    <HeaderWrapper as='header'>
       <HeaderTitle>Nic Cage</HeaderTitle>
-      <Nav>
+      <ToggleButton onClick={() => setNavOpen(!navOpen)}>
+        <ToggleButtonIcon/><ToggleButtonIcon/><ToggleButtonIcon/>
+      </ToggleButton>
+      <Nav $open={navOpen}>
         {navLinks.map(({ title, url }) => (
           <Link key={`nav-${title}`} href={url} passHref>
             <NavItem $active={url === asPath}>

@@ -14,3 +14,6 @@ export const containerMaxWidths = {
   xl: 1140,
   wd: 1330,
 }
+
+export const breakpoint = bp =>
+  `@media (min-width: ${breakpoints[bp]}px)`;

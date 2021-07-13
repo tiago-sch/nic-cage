@@ -1,12 +1,22 @@
 import styled from 'styled-components';
 import Container from '../Container';
+import { breakpoint } from '../../styles/constants/breakpoints';
 
 export const HeaderWrapper = styled(Container)`
   display: flex;
+  z-index: 10;
   justify-content: space-between;
   align-items: center;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  margin-bottom: 40px;
+  position: relative;
+
+  ${breakpoint('md')} {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
 `;
 
 export const HeaderTitle = styled.p`
@@ -16,7 +26,46 @@ export const HeaderTitle = styled.p`
   font-weight: bold;
 `;
 
-export const Nav = styled.nav``;
+export const ToggleButton = styled.button`
+  background: none;
+  border: 1px solid white;
+  border-radius: 4px;
+  padding: 4px 8px;
+
+  ${breakpoint('md')} {
+    display: none;
+  }
+`;
+
+export const ToggleButtonIcon = styled.span`
+  display: block;
+  margin: 4px 0;
+  width: 20px;
+  height: 2px;
+  background: white;
+  border: 0;
+`;
+
+export const Nav = styled.nav`
+  display: flex;
+  justify-content: space-evenly;
+  position: absolute;
+  overflow: hidden;
+  left: 0;
+  right: 0;
+  top: 100%;
+  width: 100%;
+  max-height: ${props => props.$open ? '350px': '0'};
+  background-color: black;
+  transition: max-height 0.3s ease;
+
+  ${breakpoint('md')} {
+    display: block;
+    position: relative;
+    width: auto;
+    max-height: unset;
+  }
+`;
 
 export const NavItem = styled.a`
   color: white;

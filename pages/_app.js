@@ -6,10 +6,16 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <GlobalStyle />
-      <Header />
-      <Container as="main">
+      {pageProps.noHeader ? (
         <Component {...pageProps} />
-      </Container>
+      ) : (
+        <>
+          <Header />
+          <Container as="main">
+            <Component {...pageProps} />
+          </Container>
+        </>
+      )}
     </>
   )
 }

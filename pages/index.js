@@ -12,7 +12,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Text $align="center">
+      <Text $align="center" as="div">
         <Image
           src="/favicons/ms-icon-310x310.png"
           width={310}
@@ -25,7 +25,10 @@ export default function Home() {
           href="https://www.tiagoschmidt.com/"
           as="a"
           target="_blank"
-        >Brought to you by Tiago Schmidt :)</Button>
+          rel="noopener noreferrer"
+        >
+          Brought to you by Tiago Schmidt :)
+        </Button>
       </Text>
     </>
   )

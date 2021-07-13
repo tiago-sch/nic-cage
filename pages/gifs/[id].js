@@ -12,7 +12,7 @@ const GifPage = ({ data }) => {
       </Head>
       <GifHolder $background={original_still.url}>
         <Link href='/gifs' passHref>
-          <BackButton as="a">
+          <BackButton as='a'>
             Back
           </BackButton>
         </Link>
@@ -37,8 +37,9 @@ export const getStaticProps = async (ctx) => {
   const { id } = ctx.params;
   const res = await fetch(`${process.env.API_URL}/api/gifs/${id}`)
   const data = await res.json()
+
   return {
-    props: { data }
+    props: { data, noHeader: true }
   }
 }
 
