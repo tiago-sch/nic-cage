@@ -1,19 +1,14 @@
 import styled from 'styled-components';
+import Button from '../components/Button';
 
 export const NavigationWrapper = styled.div`
   text-align: center;
   padding: 32px 0;
 `;
 
-export const NavigationButton = styled.button`
-  background: white;
-  border: 0;
-  border-radius: 8px;
-  padding: 16px;
-  color: black;
+export const NavigationButton = styled(Button)`
   font-size: 20px;
-  font-weight: bold;
-  cursor: pointer;
+  padding: 16px;
 
   &[disabled] {
     pointer-events: none;
@@ -38,13 +33,9 @@ export const CageGif = styled.img`
   background-color: rgba(0,0,0,0.5);
 `;
 
-export const BackButton = styled.a`
+export const BackButton = styled(Button)`
   z-index: 2;
-  background: white;
-  color: black;
-  font-weight: bold;
   position: fixed;
   top: 8px;
   left: 8px;
-  padding: 8px 16px;
 `;

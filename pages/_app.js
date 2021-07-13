@@ -1,10 +1,15 @@
 import GlobalStyle from '../styles/GlobalStyles'
+import Header from '../components/Header'
+import Container from '../components/Container'
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
       <GlobalStyle />
-      <Component {...pageProps} />
+      <Header />
+      <Container as="main">
+        <Component {...pageProps} />
+      </Container>
     </>
   )
 }

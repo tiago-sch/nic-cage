@@ -1,14 +1,11 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
+import Button from '../Button';
 
-export const ScrollToTopButton = styled.button`
+export const ScrollToTopButton = styled(Button)`
   position: fixed;
   margin: 0;
   bottom: 8px;
   right: 8px;
-  border: 0;
-  border-radius: 2px;
-  background: white;
-  color: black;
   font-size: 20px;
-  cursor: pointer;
+  padding: 8px;
 `;

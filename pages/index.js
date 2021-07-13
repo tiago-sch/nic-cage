@@ -1,27 +1,32 @@
 import Head from 'next/head'
-import Link from 'next/link'
-import Container from '../components/Container'
-import Title from '../components/Title'
+import Image from 'next/image'
+import Button from '../components/Button'
+import Text from '../components/Text'
 
 export default function Home() {
   return (
     <>
       <Head>
-        <title>Nicolas Cage</title>
+        <title>Nic Cage</title>
         <meta name="description" content="The One True God" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <Container>
-          <Title>Nic Cage</Title>
-          <p>
-            <Link href='/gifs/'>
-              <a>GIFS</a>
-            </Link>
-          </p>
-        </Container>
-      </main>
+      <Text $align="center">
+        <Image
+          src="/favicons/ms-icon-310x310.png"
+          width={310}
+          height={310}
+        />
+      </Text>
+
+      <Text $align="center">
+        <Button
+          href="https://www.tiagoschmidt.com/"
+          as="a"
+          target="_blank"
+        >Brought to you by Tiago Schmidt :)</Button>
+      </Text>
     </>
   )
 }

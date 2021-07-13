@@ -1,6 +1,5 @@
 import Head from 'next/head'
 import { useState } from 'react'
-import Container from '../../components/Container'
 import GifsMasonry from '../../components/GifsMasonry'
 import ScrollToTop from '../../components/ScrollToTop'
 import Title from '../../components/Title'
@@ -30,21 +29,18 @@ const GifsPage = ({ data, pagination }) => {
       <Head>
         <title>Nic Cage - GIFs</title>
       </Head>
-      <main>
-        <Container>
-          <Title>Nic Cage GIFs</Title>
 
-          <GifsMasonry gifs={gifs} />
+      <Title>GIFs</Title>
 
-          <NavigationWrapper>
-            <NavigationButton onClick={fetchMore}>
-              Load More
-            </NavigationButton>
-          </NavigationWrapper>
-        </Container>
+      <GifsMasonry gifs={gifs} />
 
-        <ScrollToTop />
-      </main>
+      <NavigationWrapper>
+        <NavigationButton onClick={fetchMore}>
+          Load More
+        </NavigationButton>
+      </NavigationWrapper>
+
+      <ScrollToTop />
     </>
   )
 }

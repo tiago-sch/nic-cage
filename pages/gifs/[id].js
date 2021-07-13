@@ -11,8 +11,8 @@ const GifPage = ({ data }) => {
         <title>Nic Cage - {title || 'GIF'}</title>
       </Head>
       <GifHolder $background={original_still.url}>
-        <Link href='/gifs'>
-          <BackButton>
+        <Link href='/gifs' passHref>
+          <BackButton as="a">
             Back
           </BackButton>
         </Link>
