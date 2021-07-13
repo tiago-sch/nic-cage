@@ -16,6 +16,10 @@ const navLinks = [
     url: '/',
   },
   {
+    title: 'Movies',
+    url: '/movies',
+  },
+  {
     title: 'GIFs',
     url: '/gifs',
   }
