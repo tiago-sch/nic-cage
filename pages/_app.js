@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import GlobalStyle from '../styles/GlobalStyles'
 import Header from '../components/Header'
