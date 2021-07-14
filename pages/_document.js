@@ -26,11 +26,11 @@ class MyDocument extends Document {
     } finally {
       sheet.seal()
     }
-  }
+  };
 
   render() {
     return (
-      <Html>
+      <Html lang='en'>
         <Head>
           <meta name="description" content="The one true God" />
           <link
@@ -44,10 +44,24 @@ class MyDocument extends Document {
           <link rel="icon" href="/favicon.ico" />
           <meta name="msapplication-TileColor" content="#000000" />
           <meta property="og:type" content="website" />
+          <script
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA_TRACKING}`}
+          />
         </Head>
         <body>
           <Main />
           <NextScript />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${process.env.GA_TRACKING}', { page_path: window.location.pathname });
+              `,
+            }}
+          />
         </body>
       </Html>
     )

@@ -9,6 +9,7 @@ First, run the development server, create a `.env.local` file with this content:
 ```
 GIPHY_API_KEY=
 TMDB_API_KEY=
+GA_TRACKING=
 ```
 
 and then run:
