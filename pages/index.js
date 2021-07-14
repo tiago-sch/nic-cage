@@ -9,7 +9,6 @@ export default function Home() {
       <Head>
         <title>Nic Cage</title>
         <meta name="description" content="The One True God" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <Text $align="center" as="div">

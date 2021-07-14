@@ -41,6 +41,7 @@ class MyDocument extends Document {
           <link rel="icon" type="image/png" sizes="96x96" href="/favicons/android-icon-96x96.png" />
           <link rel="icon" type="image/png" sizes="32x32" href="/favicons/android-icon-32x32.png" />
           <link rel="icon" type="image/png" sizes="16x16" href="/favicons/android-icon-192x192.png" />
+          <link rel="icon" href="/favicon.ico" />
           <meta name="msapplication-TileColor" content="#000000" />
           <meta property="og:type" content="website" />
         </Head>
