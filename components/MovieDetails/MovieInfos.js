@@ -34,7 +34,7 @@ const MovieInfos = ({ movieInfo }) => {
       <MovieInfo>{genres.map(item => item.name).join(', ')}</MovieInfo>
 
       <MovieInfoTitle>Release Date</MovieInfoTitle>
-      <MovieInfo>{release_date.replaceAll('-', '/') || 'To be released'}</MovieInfo>
+      <MovieInfo>{release_date.replace(/-/g, '/') || 'To be released'}</MovieInfo>
 
       {!!runtime && (
         <>
