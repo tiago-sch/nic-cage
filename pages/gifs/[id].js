@@ -1,8 +1,23 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import DefaultErrorPage from 'next/error'
 import { GifHolder, CageGif, BackButton } from '../../styles/GifsPage'
 
-const GifPage = ({ data }) => {
+// API
+import { getGiphyIdApiUrl } from '../../utils/helpers/service';
+
+const GifPage = ({ data, error }) => {
+  if (error) {
+    return (
+      <>
+        <Head>
+          <meta name="robots" content="noindex" />
+        </Head>
+        <DefaultErrorPage statusCode={404} />
+      </>
+    )
+  }
+
   const { title, images: { downsized_large, original_still } = {}} = data || {}
 
   return (
@@ -35,8 +50,13 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (ctx) => {
   const { id } = ctx.params;
-  const res = await fetch(`${process.env.API_URL}/api/gifs/${id}`)
-  const data = await res.json()
+
+  const request = await fetch(getGiphyIdApiUrl(id))
+  const { data } = await request.json()
+
+  if (!data.id) {
+    return { props: { error: true, message: 'NOT FOUND' }}
+  }
 
   return {
     props: { data, noHeader: true }

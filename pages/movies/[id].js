@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import DefaultErrorPage from 'next/error'
 import {
   Banner,
   BannerContainer,
@@ -10,7 +11,21 @@ import ScrollToTop from '../../components/ScrollToTop'
 import useBreakpoint from '../../utils/hooks/useBreakpoint'
 import { getBackdropUrl } from '../../utils/helpers/service'
 
-const GifPage = ({ data }) => {
+// API
+import { getMovieDetailsApiUrl, getMovieCreditsApiUrl } from '../../utils/helpers/service'
+
+const MoviePage = ({ data, error }) => {
+  if (error) {
+    return (
+      <>
+        <Head>
+          <meta name="robots" content="noindex" />
+        </Head>
+        <DefaultErrorPage statusCode={404} />
+      </>
+    )
+  }
+
   const {
     title,
     backdrop_path,
@@ -58,12 +73,20 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (ctx) => {
   const { id } = ctx.params;
-  const res = await fetch(`${process.env.API_URL}/api/movies/${id}`)
-  const data = await res.json()
+
+  const request = await fetch(getMovieDetailsApiUrl(id))
+  const data = await request.json()
+
+  if (!data.id) {
+    return { props: { error: true, message: 'NOT FOUND' }}
+  }
+
+  const creditsRequest = await fetch(getMovieCreditsApiUrl(id))
+  const { cast, crew } = await creditsRequest.json()
 
   return {
-    props: { data }
+    props: { data: { ...data, cast, crew } }
   }
 }
 
-export default GifPage
+export default MoviePage

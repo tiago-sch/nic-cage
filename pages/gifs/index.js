@@ -5,6 +5,9 @@ import ScrollToTop from '../../components/ScrollToTop'
 import Title from '../../components/Title'
 import { NavigationWrapper, NavigationButton } from '../../styles/GifsPage'
 
+// API
+import { getGiphyApiUrl } from '../../utils/helpers/service';
+
 const GifsPage = ({ data, pagination }) => {
   const [gifs, setGifs] = useState(data);
   const [page, setPage] = useState(0);
@@ -46,8 +49,8 @@ const GifsPage = ({ data, pagination }) => {
 }
 
 export const getStaticProps = async (ctx) => {
-  const res = await fetch(`${process.env.API_URL}/api/gifs/`)
-  const { data, pagination } = await res.json()
+  const request = await fetch(getGiphyApiUrl(0))
+  const { data, pagination } = await request.json()
   return {
     props: {
       data,

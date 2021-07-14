@@ -27,3 +27,11 @@ export const getMoviePosterUrl = (path, size = 'md') =>
 
 export const getBackdropUrl = (path, size = 'md') =>
   `${TMDB_IMG_URL}${TMDB_BACKDROP_SIZES[size]}${path}`;
+
+export const sortMoviesByYear = (a, b) => {
+  if (!a?.release_date) return 1;
+  if (!b?.release_date) return -1;
+  const aDate = a.release_date.split('/').reverse().join('');
+  const bDate = b.release_date.split('/').reverse().join('');
+  return aDate > bDate ? 1 : aDate < bDate ? -1 : 0;
+};

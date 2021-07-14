@@ -3,6 +3,9 @@ import ScrollToTop from '../../components/ScrollToTop'
 import Title from '../../components/Title'
 import MoviesGrid from '../../components/MoviesGrid'
 
+// API
+import { getMoviesApiUrl, sortMoviesByYear } from '../../utils/helpers/service';
+
 const GifsPage = ({ cast, crew }) => {
 
   return (
@@ -25,10 +28,14 @@ const GifsPage = ({ cast, crew }) => {
 }
 
 export const getStaticProps = async (ctx) => {
-  const res = await fetch(`${process.env.API_URL}/api/movies/`)
-  const { cast, crew } = await res.json()
+  const request = await fetch(getMoviesApiUrl())
+  const { cast, crew } = await request.json()
+
   return {
-    props: { cast, crew },
+    props: {
+      cast: cast.sort(sortMoviesByYear).reverse(),
+      crew: crew.sort(sortMoviesByYear).reverse()
+    },
     revalidate: 60 * 60 * 24 * 7
   }
 }
