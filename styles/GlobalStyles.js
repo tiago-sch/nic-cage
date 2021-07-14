@@ -14,6 +14,7 @@ const GlobalStyle = createGlobalStyle`
   *,
   html,
   body {
+    box-sizing: border-box;
     font-family: 'Nanum Gothic', sans-serif;
     -webkit-font-smoothing: antialiased;
   }

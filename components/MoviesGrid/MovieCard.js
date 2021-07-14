@@ -23,7 +23,7 @@ const MovieCard = ({ movie, withJob }) => {
 
   return (
     <MovieItem>
-      <Link href="#" passHref>
+      <Link href="/movies/[id]" as={`/movies/${id}`} passHref>
         <MovieLink>
           <MoviePoster
             src={moviePoster}

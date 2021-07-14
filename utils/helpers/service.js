@@ -19,6 +19,9 @@ export const getMoviesApiUrl = () =>
 export const getMovieDetailsApiUrl = id =>
   `${TMDB_API_URL}movie/${id}?api_key=${process.env.TMDB_API_KEY}`
 
+export const getMovieCreditsApiUrl = id =>
+`${TMDB_API_URL}movie/${id}/credits?api_key=${process.env.TMDB_API_KEY}`
+
 export const getMoviePosterUrl = (path, size = 'md') =>
   `${TMDB_IMG_URL}${TMDB_POSTER_SIZES[size]}${path}`;
 

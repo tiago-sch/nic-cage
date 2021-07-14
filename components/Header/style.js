@@ -4,12 +4,12 @@ import { breakpoint } from '../../styles/constants/breakpoints';
 
 export const HeaderWrapper = styled(Container)`
   display: flex;
-  z-index: 10;
+  z-index: 99;
   justify-content: space-between;
   align-items: center;
   padding-top: 8px;
   padding-bottom: 8px;
-  margin-bottom: 40px;
+  margin-bottom: 16px;
   position: relative;
 
   ${breakpoint('md')} {
@@ -22,7 +22,7 @@ export const HeaderWrapper = styled(Container)`
 export const HeaderTitle = styled.p`
   padding: 0;
   margin: 0;
-  font-size: 40px;
+  font-size: 32px;
   font-weight: bold;
 `;
 
