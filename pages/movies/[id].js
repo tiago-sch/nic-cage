@@ -48,9 +48,9 @@ const MoviePage = ({ data, error }) => {
   return (
     <>
       <Head>
-        <title>Nic Cage - {title || 'Movie'}</title>
+        <title>Nic Cage - {title || 'Movie'}{movieYear && ` (${movieYear})`}</title>
         <meta name="description" content={tagline || overview || 'Another perfect movie with Nic Cage!'} />
-        <meta property="og:title" content={title} />
+        <meta property="og:title" content={`${title}${movieYear && ` (${movieYear})`}`} />
         <meta property="og:type" content="video.movie" />
         {!!backdrop && (
           <meta property="og:image" content={backdrop} />
