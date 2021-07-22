@@ -12,6 +12,7 @@ const GifsPage = ({ cast, crew }) => {
     <>
       <Head>
         <title>Nic Cage - Movies</title>
+        <meta name="description" content="A mighty list of Nic Cage movies!" />
       </Head>
 
       <Title>Movies</Title>

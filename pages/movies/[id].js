@@ -31,6 +31,7 @@ const MoviePage = ({ data, error }) => {
     backdrop_path,
     release_date,
     tagline,
+    overview
   } = data;
   const { isDesktop, isTablet } = useBreakpoint();
 
@@ -42,13 +43,21 @@ const MoviePage = ({ data, error }) => {
     return 'sm';
   }
 
+  const backdrop = backdrop_path && getBackdropUrl(backdrop_path, backdropSize());
+
   return (
     <>
       <Head>
         <title>Nic Cage - {title || 'Movie'}</title>
+        <meta name="description" content={tagline || overview || 'Another perfect movie with Nic Cage!'} />
+        <meta property="og:title" content={title} />
+        <meta property="og:type" content="video.movie" />
+        {!!backdrop && (
+          <meta property="og:image" content={backdrop} />
+        )}
       </Head>
 
-      <Banner $background={backdrop_path && getBackdropUrl(backdrop_path, backdropSize())}>
+      <Banner $background={backdrop}>
         <BannerContainer>
           <BannerTitle>
             {title} {movieYear && <small>({movieYear})</small>}

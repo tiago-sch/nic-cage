@@ -24,6 +24,8 @@ const GifPage = ({ data, error }) => {
     <>
       <Head>
         <title>Nic Cage - {title || 'GIF'}</title>
+        <meta name="description" content={title || "Another perfect Nic Cage related GIF!"} />
+        <meta property="og:image" content={original_still.url} />
       </Head>
       <GifHolder $background={original_still.url}>
         <Link href='/gifs' passHref>

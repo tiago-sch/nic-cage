@@ -28,7 +28,7 @@ const MovieInfos = ({ movieInfo }) => {
       <MovieContentTitle>Movie Details</MovieContentTitle>
 
       <MovieInfoTitle>Overview</MovieInfoTitle>
-      <MovieInfo>{overview}</MovieInfo>
+      <MovieInfo>{overview || "-"}</MovieInfo>
 
       <MovieInfoTitle>{genres.lenght === 1 ? 'Genre' : 'Genres'}</MovieInfoTitle>
       <MovieInfo>{genres.map(item => item.name).join(', ')}</MovieInfo>

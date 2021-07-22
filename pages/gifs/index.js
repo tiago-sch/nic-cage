@@ -31,6 +31,7 @@ const GifsPage = ({ data, pagination }) => {
     <>
       <Head>
         <title>Nic Cage - GIFs</title>
+        <meta name="description" content="A mighty list of Nic Cage related GIFs!" />
       </Head>
 
       <Title>GIFs</Title>
