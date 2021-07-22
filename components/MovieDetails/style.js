@@ -33,6 +33,10 @@ export const MovieInfoTitle = styled.dt`
 
 export const MovieInfo = styled.dd`
   margin-bottom: 24px;
+
+  a {
+    color: white;
+  }
 `;
 
 export const MovieCredits = styled.div`

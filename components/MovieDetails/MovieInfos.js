@@ -12,6 +12,7 @@ const MovieInfos = ({ movieInfo }) => {
     title,
     overview,
     genres,
+    imdb_id,
     production_companies,
     production_countries,
     budget,
@@ -40,6 +41,15 @@ const MovieInfos = ({ movieInfo }) => {
         <>
           <MovieInfoTitle>Runtime</MovieInfoTitle>
           <MovieInfo>{runtime} min</MovieInfo>
+        </>
+      )}
+
+      {!!imdb_id && (
+        <>
+          <MovieInfoTitle>IMDB</MovieInfoTitle>
+          <MovieInfo>
+            <a href={`https://www.imdb.com/title/${imdb_id}`} target="_blank" rel="noopener noreferrer">Link</a>
+          </MovieInfo>
         </>
       )}
 
