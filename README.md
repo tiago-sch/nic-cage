@@ -6,10 +6,9 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 First, run the development server, create a `.env.local` file with this content:
 
-```
+```env
 GIPHY_API_KEY=
 TMDB_API_KEY=
-GA_TRACKING=
 ```
 
 and then run:
